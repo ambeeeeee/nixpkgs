@@ -41593,4 +41593,10 @@ with pkgs;
   gitrs = callPackage ../tools/misc/gitrs { };
 
   wttrbar = callPackage ../applications/misc/wttrbar { };
+
+  aasdk = callPackage ../development/libraries/aasdk { };
+
+  openauto = libsForQt5.callPackage ../tools/misc/openauto { };
+
+  h264bitstream = callPackage ../development/libraries/h264bitstream { };
 }
