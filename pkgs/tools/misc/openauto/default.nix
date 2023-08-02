@@ -30,8 +30,11 @@ stdenv.mkDerivation rec {
     gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav gst-vaapi
   ]);
 
-    buildPhase = ''
-      make openauto
+
+    postInstall = ''
+      qtWrapperArgs+=(
+        --prefix GST_PLUGIN_SYSTEM_PATH_1_0 : "$GST_PLUGIN_SYSTEM_PATH_1_0"
+      )
     '';
 
     nativeBuildInputs = [ cmake ];
