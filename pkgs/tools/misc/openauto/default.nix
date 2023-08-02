@@ -9,10 +9,6 @@ stdenv.mkDerivation rec {
         sha256 = "sha256-kEqKJMWC5tI2WC45CF1fGJbr15PjGQlVKgp2YXzyRb4=";
     };
 
-    patches = [
-        ./openauto.patch
-    ];
-
     buildInputs = [
         wrapQtAppsHook
         protobuf
