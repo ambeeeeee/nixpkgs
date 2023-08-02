@@ -1,4 +1,4 @@
-{ stdenv, fetchgit, protobuf, protobufc, libusb, boost, lib, openssl, cmake, qt5, pulseaudio, rtaudio, aasdk, wrapQtAppsHook, h264bitstream, gst_all_1}:
+{ stdenv, fetchgit, protobuf, protobufc, libusb, boost, lib, openssl, cmake, qt5, pulseaudio, rtaudio, aasdk, wrapQtAppsHook, h264bitstream, gst_all_1, pkgconfig}:
 
 stdenv.mkDerivation rec {
     name = "openauto";
@@ -10,6 +10,7 @@ stdenv.mkDerivation rec {
     };
 
     buildInputs = [
+        pkgconfig
         wrapQtAppsHook
         protobuf
         h264bitstream
@@ -26,7 +27,7 @@ stdenv.mkDerivation rec {
         qt5.qttools
         aasdk
     ] ++ (with gst_all_1; [
-    gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
+    gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav gst-vaapi
   ]);
 
     buildPhase = ''
